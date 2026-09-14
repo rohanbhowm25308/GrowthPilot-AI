@@ -12,7 +12,7 @@ Upload merchant data, understand what is happening, and move from “What happen
 https://growthpilot-ai-oink.onrender.com/
 
 💻 GitHub Repository:
-https://github.com/rohanbhowm25308/Growthpilot-AI
+https://github.com/rohanbhowm25308/Paytm-GrowthPilot-AI
 
 
 SEE → UNDERSTAND → PREDICT → DECIDE → ACT → MEASURE → LEARN
