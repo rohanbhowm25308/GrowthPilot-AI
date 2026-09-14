@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrowthPilot AI — Your AI Business Partner for Merchant Growth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================= -->
+<!-- LANDING / HERO                                                  -->
+<!-- ============================================================= -->
+<div id="landing" class="landing">
+  <header class="landing-nav">
+    <div class="brand">
+      <span class="brand-mark">◆</span>
+      <span class="brand-name">GrowthPilot <em>AI</em></span>
+    </div>
+    <div class="landing-nav-links">
+      <a href="#agents-preview">AI Agents</a>
+      <a href="#features-preview">Features</a>
+      <button class="btn btn-ghost" id="btn-enter-top">Launch GrowthPilot</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="badge">AI-POWERED MERCHANT GROWTH</div>
+      <h1>Turn every transaction into<br>your next growth opportunity.</h1>
+      <p class="hero-sub">GrowthPilot AI analyzes your business, predicts what happens next, discovers hidden
+        opportunities, and recommends the actions that can grow your revenue — like a business partner who
+        never sleeps.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="btn-enter-hero">Launch GrowthPilot</button>
+        <button class="btn btn-outline" id="btn-explore-agents">Explore AI Agents</button>
+      </div>
+      <div class="hero-stats">
+        <div><strong>8</strong><span>Specialized AI agents</span></div>
+        <div><strong>24/7</strong><span>Autonomous monitoring</span></div>
+        <div><strong>Data-Driven</strong><span>AI-powered insights</span></div>
+      </div>
+    </div>
+
+    <div class="hero-network" id="hero-network">
+      <!-- populated by JS: central core + agent nodes + animated connections -->
+    </div>
+  </section>
+
+  <section class="loop-preview" id="agents-preview">
+    <h2>The Autonomous Growth Loop</h2>
+    <p class="section-sub">GrowthPilot doesn't stop at answers. It runs a continuous loop.</p>
+    <div class="loop-track" id="loop-track"></div>
+  </section>
+
+  <section class="features-preview" id="features-preview">
+    <h2>One AI business partner. Every growth lever.</h2>
+    <div class="feature-grid" id="feature-grid"></div>
+  </section>
+
+  <footer class="landing-footer">
+    <span>GrowthPilot AI — built for Paytm AI Hackathon · Track 1: Merchant Growth AI</span>
+    <span>Upload your own data for a live analysis, or explore instantly with Demo Mode.</span>
+  </footer>
+</div>
+
+<!-- ============================================================= -->
+<!-- ONBOARDING: Upload merchant data / Try Demo Data                -->
+<!-- ============================================================= -->
+<div id="onboarding" class="onboarding hidden">
+  <div class="onboarding-inner">
+
+    <!-- Step 1: choose data source -->
+    <div id="ob-step-choose" class="ob-step">
+      <div class="badge">STEP 1 OF 4</div>
+      <h2>Welcome to GrowthPilot AI</h2>
+      <p class="section-sub">Turn your business data into your next growth opportunity.</p>
+
+      <div class="dropzone" id="dropzone">
+        <div class="dropzone-icon">☁</div>
+        <div class="dropzone-title">Upload Merchant Data</div>
+        <div class="muted">Drag & drop, or click to browse — CSV or Excel</div>
+        <input type="file" id="file-input" accept=".csv,.xlsx,.xls" hidden>
+        <button class="btn btn-primary" id="btn-browse-file">Upload Dataset</button>
+        <div class="dropzone-support">Supported: CSV, XLSX</div>
+      </div>
+      <p class="muted ob-privacy">Your data stays in this session — nothing is sent anywhere except the AI calls needed to analyze it.</p>
+
+      <div class="ob-divider"><span>or</span></div>
+
+      <div class="ob-demo-row">
+        <span class="muted">Don't have data handy?</span>
+        <button class="btn btn-outline" id="btn-try-demo">Try Demo Data</button>
+      </div>
+      <div id="ob-upload-error" class="ob-error hidden"></div>
+    </div>
+
+    <!-- Step 2: file preview + column mapping -->
+    <div id="ob-step-mapping" class="ob-step hidden">
+      <div class="badge">STEP 2 OF 4</div>
+      <h2>Confirm your data columns</h2>
+      <p class="section-sub" id="ob-file-summary"></p>
+
+      <div class="card">
+        <div class="card-head"><h3>Column Mapping</h3></div>
+        <p class="muted">We detected these fields automatically — adjust anything that isn't right, then confirm.</p>
+        <div id="mapping-table" class="mapping-table"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Preview (first 5 rows)</h3></div>
+        <div class="preview-table-wrap"><table class="preview-table" id="preview-table"></table></div>
+      </div>
+
+      <label class="ob-merchant-name-label">Business name (optional)
+        <input type="text" id="ob-merchant-name" placeholder="e.g. Sharma General Store">
+      </label>
+
+      <div class="ob-actions">
+        <button class="btn btn-outline" id="btn-mapping-back">Back</button>
+        <button class="btn btn-primary" id="btn-confirm-mapping">Check Data Quality →</button>
+      </div>
+      <div id="ob-mapping-error" class="ob-error hidden"></div>
+    </div>
+
+    <!-- Step 2b: Data Quality Check -->
+    <div id="ob-step-quality" class="ob-step hidden">
+      <div class="badge">STEP 3 OF 4</div>
+      <h2>Data Quality Check</h2>
+      <p class="section-sub">A quick check before GrowthPilot builds your intelligence layer.</p>
+
+      <div class="card">
+        <div class="card-head">
+          <h3>Quality Score</h3>
+          <span class="quality-score-badge" id="quality-score-badge">—/100</span>
+        </div>
+        <div id="quality-checks" class="quality-checks"></div>
+        <div id="quality-warnings" class="quality-warnings"></div>
+      </div>
+
+      <div class="ob-actions">
+        <button class="btn btn-outline" id="btn-quality-back">Back</button>
+        <button class="btn btn-primary" id="btn-continue-analysis">Continue Analysis →</button>
+      </div>
+      <div id="ob-quality-error" class="ob-error hidden"></div>
+    </div>
+
+    <!-- Step 3: AI analyzing animation -->
+    <div id="ob-step-analyzing" class="ob-step hidden">
+      <div class="badge">STEP 4 OF 4</div>
+      <h2>GrowthPilot AI is analyzing your business</h2>
+      <p class="section-sub">Specialized agents are building your intelligence layer.</p>
+
+      <div class="ob-analyzing-network" id="ob-analyzing-network"></div>
+
+      <div class="ob-checklist" id="ob-checklist">
+        <div class="ob-check-item" data-step="0"><span class="ob-check-dot"></span>Understanding transactions</div>
+        <div class="ob-check-item" data-step="1"><span class="ob-check-dot"></span>Segmenting customers</div>
+        <div class="ob-check-item" data-step="2"><span class="ob-check-dot"></span>Detecting trends</div>
+        <div class="ob-check-item" data-step="3"><span class="ob-check-dot"></span>Forecasting revenue</div>
+        <div class="ob-check-item" data-step="4"><span class="ob-check-dot"></span>Finding growth opportunities</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<!-- APP SHELL                                                       -->
+<!-- ============================================================= -->
+<div id="app" class="app hidden">
+
+  <aside class="sidebar">
+    <div class="brand sidebar-brand">
+      <span class="brand-mark">◆</span>
+      <span class="brand-name">GrowthPilot</span>
+    </div>
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <button data-view="overview" class="nav-item active">
+        <span class="nav-icon">◈</span>Overview</button>
+      <button data-view="customers" class="nav-item">
+        <span class="nav-icon">◎</span>Customers</button>
+      <button data-view="radar" class="nav-item">
+        <span class="nav-icon">◉</span>Growth Radar</button>
+      <button data-view="campaigns" class="nav-item">
+        <span class="nav-icon">▲</span>Campaigns</button>
+      <button data-view="simulator" class="nav-item">
+        <span class="nav-icon">◫</span>Simulator</button>
+      <button data-view="agents" class="nav-item">
+        <span class="nav-icon">✦</span>AI Agents</button>
+      <button data-view="growth-tools" class="nav-item">
+        <span class="nav-icon">✧</span>Growth Tools</button>
+      <button data-view="insights" class="nav-item">
+        <span class="nav-icon">◐</span>Insights</button>
+      <button data-view="actions" class="nav-item">
+        <span class="nav-icon">☑</span>Action Center</button>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="data-source-panel" id="data-source-panel">
+        <div class="dsp-label">DATA SOURCE</div>
+        <div class="dsp-row"><span class="dsp-dot" id="dsp-dot"></span><span class="dsp-name" id="dsp-name">—</span></div>
+        <div class="dsp-meta" id="dsp-meta">—</div>
+        <button class="btn btn-ghost btn-small sidebar-switch-btn" id="btn-switch-data">⇄ Switch Data Source</button>
+      </div>
+      <div class="ai-status" id="ai-status-pill">
+        <span class="dot"></span><span id="ai-status-text">Checking AI status…</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-col">
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 id="view-title">Overview</h1>
+        <span class="topbar-sub" id="view-sub">Your business at a glance</span>
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-outline btn-small" id="btn-new-analysis">＋ New Analysis</button>
+        <div class="lang-toggle" id="lang-toggle">
+          <button class="lang-btn active" data-lang="English">English</button>
+          <button class="lang-btn" data-lang="Hindi">Hindi</button>
+        </div>
+        <button class="icon-btn" id="btn-voice" title="Talk to GrowthPilot">🎙️</button>
+        <div class="merchant-chip">
+          <div class="avatar">S</div>
+          <div>
+            <div class="merchant-name" id="merchant-name">Sharma General Store</div>
+            <div class="merchant-cat" id="merchant-cat">Grocery & Daily Essentials</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content" id="content">
+
+      <!-- ============== OVERVIEW ============== -->
+      <section class="view" id="view-overview">
+        <div class="kpi-grid" id="kpi-grid"></div>
+        <div id="kpi-explain-panel" class="card kpi-explain-panel hidden">
+          <div class="card-head"><h3 id="kpi-explain-title">Explain My Numbers</h3></div>
+          <div id="kpi-explain-text" class="muted"></div>
+        </div>
+
+        <div class="row-2">
+          <div class="card score-card">
+            <div class="card-head">
+              <h3>AI Merchant Growth Score</h3>
+              <button class="link-btn" id="btn-why-score">Why this score?</button>
+            </div>
+            <div class="score-body">
+              <div class="score-ring-wrap">
+                <svg viewBox="0 0 160 160" class="score-ring">
+                  <circle cx="80" cy="80" r="70" class="ring-bg"></circle>
+                  <circle cx="80" cy="80" r="70" class="ring-fg" id="score-ring-fg"></circle>
+                </svg>
+                <div class="score-ring-label">
+                  <span id="score-value">—</span>
+                  <small>/ 100</small>
+                </div>
+              </div>
+              <div class="score-factors" id="score-factors"></div>
+            </div>
+            <div class="score-explain" id="score-explain"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Revenue — Last 30 Days</h3></div>
+            <canvas id="chart-revenue-history" height="200"></canvas>
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div class="card doctor-card">
+            <div class="card-head">
+              <h3>🩺 AI Business Doctor</h3>
+              <button class="btn btn-small btn-primary" id="btn-diagnose">Diagnose My Business</button>
+            </div>
+            <div id="doctor-result" class="doctor-result empty">
+              <p class="muted">Click "Diagnose My Business" and GrowthPilot will analyze your data and surface the
+                one problem worth fixing first.</p>
+            </div>
+          </div>
+
+          <div class="card anomaly-card">
+            <div class="card-head"><h3>🚨 Revenue Anomaly Detector</h3></div>
+            <div id="anomaly-result" class="anomaly-result">Scanning transaction patterns…</div>
+          </div>
+        </div>
+
+        <div class="card brief-card">
+          <div class="card-head"><h3>📋 AI Daily Business Brief</h3></div>
+          <div id="brief-result" class="brief-result">Preparing today's briefing…</div>
+        </div>
+      </section>
+
+      <!-- ============== CUSTOMERS ============== -->
+      <section class="view hidden" id="view-customers">
+        <div class="row-2">
+          <div class="card">
+            <div class="card-head"><h3>Customer DNA — Segments</h3></div>
+            <canvas id="chart-segments" height="240"></canvas>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Segment Detail</h3></div>
+            <div id="segment-detail" class="segment-detail">
+              <p class="muted">Click a segment on the chart or in the legend to see its detail here.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>All Segments</h3></div>
+          <div id="segment-list" class="segment-list"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>🛍️ AI Cross-Sell Engine</h3></div>
+          <div id="cross-sell-card" class="cross-sell-card"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>🧬 Hyper-Personalized Offers</h3></div>
+          <p class="muted">The minimum incentive needed to move each customer — never a blanket discount. Shown as illustrative example customers.</p>
+          <div id="personalized-offers" class="offers-list"></div>
+        </div>
+      </section>
+
+      <!-- ============== GROWTH RADAR ============== -->
+      <section class="view hidden" id="view-radar">
+        <div class="card">
+          <div class="card-head"><h3>🎯 Growth Opportunity Radar</h3></div>
+          <div id="opportunity-grid" class="opportunity-grid"></div>
+        </div>
+
+        <div class="card goal-card">
+          <div class="card-head"><h3>🧭 AI Growth Goal Planner</h3></div>
+          <p class="muted">What do you want to achieve?</p>
+          <div class="goal-input-row">
+            <input type="text" id="goal-input" placeholder="e.g. I want to increase revenue by 20%" value="I want to increase revenue by 20%">
+            <button class="btn btn-primary" id="btn-goal-plan">Generate My Growth Plan</button>
+          </div>
+          <div id="goal-result" class="goal-result"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h3>🧠 Growth Memory</h3></div>
+          <ul id="memory-list" class="memory-list"></ul>
+        </div>
+      </section>
+
+      <!-- ============== CAMPAIGNS ============== -->
+      <section class="view hidden" id="view-campaigns">
+        <div class="card">
+          <div class="card-head"><h3>📢 AI Campaign Studio</h3></div>
+          <div class="campaign-form">
+            <label>Campaign Goal
+              <select id="campaign-goal">
+                <option>Increase Revenue</option>
+                <option selected>Retain Customers</option>
+                <option>Increase Repeat Purchases</option>
+                <option>Cross-Sell</option>
+                <option>Reactivate Lost Customers</option>
+              </select>
+            </label>
+            <label>Target Audience
+              <select id="campaign-target">
+                <option value="at_risk" selected>At-Risk Customers</option>
+              </select>
+            </label>
+            <label>Offer
+              <input type="text" id="campaign-offer" value="₹50 Cashback">
+            </label>
+            <label>Timing
+              <input type="text" id="campaign-timing" value="7 PM – 9 PM">
+            </label>
+            <label>Language
+              <select id="campaign-language">
+                <option selected>English</option>
+                <option>Hindi</option>
+                <option>Hinglish</option>
+              </select>
+            </label>
+          </div>
+          <button class="btn btn-primary" id="btn-generate-campaign">Generate Campaign</button>
+          <div id="campaign-result" class="campaign-result"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h3>🔥 AI "Why Not?" Engine</h3></div>
+          <p class="muted">GrowthPilot doesn't blindly agree — it checks a proposed campaign against cost, segment sensitivity, and cannibalization risk before you launch. Uses the target audience selected above.</p>
+          <div class="why-not-controls">
+            <label>Proposed discount / cashback strength
+              <input type="range" id="whynot-discount" min="0" max="30" value="12">
+              <span class="sim-val" id="whynot-discount-val">12%</span>
+            </label>
+          </div>
+          <button class="btn btn-outline btn-small" id="btn-why-not">Why shouldn't I run this campaign?</button>
+          <div id="why-not-result" class="why-not-result"></div>
+        </div>
+      </section>
+
+      <!-- ============== SIMULATOR ============== -->
+      <section class="view hidden" id="view-simulator">
+        <div class="card">
+          <div class="card-head"><h3>🔮 What-If Growth Simulator</h3></div>
+          <div class="sim-controls">
+            <label>Discount / Cashback strength
+              <input type="range" id="sim-discount" min="0" max="30" value="10">
+              <span class="sim-val" id="sim-discount-val">10%</span>
+            </label>
+            <label>Campaign Budget (₹)
+              <input type="range" id="sim-budget" min="1000" max="20000" step="500" value="5000">
+              <span class="sim-val" id="sim-budget-val">₹5,000</span>
+            </label>
+            <label>Target Segment
+              <select id="sim-segment">
+                <option value="at_risk" selected>At-Risk Customers</option>
+                <option value="loyal">Loyal Champions</option>
+                <option value="rising">Rising Customers</option>
+                <option value="deal_seekers">Deal Seekers</option>
+                <option value="new">New Customers</option>
+                <option value="lost">Lost Customers</option>
+              </select>
+            </label>
+            <label>Offer Duration
+              <select id="sim-duration">
+                <option value="3">3 Days</option>
+                <option value="7" selected>7 Days</option>
+                <option value="14">14 Days</option>
+              </select>
+            </label>
+          </div>
+          <div id="sim-result" class="sim-result"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h3>🧪 AI Experiment Lab</h3></div>
+          <p class="muted">GrowthPilot compares three strategies and picks a winner based on projected ROI.</p>
+          <button class="btn btn-primary btn-small" id="btn-run-experiment">Run Experiment</button>
+          <div id="experiment-result" class="experiment-result"></div>
+        </div>
+      </section>
+
+      <!-- ============== AI AGENTS ============== -->
+      <section class="view hidden" id="view-agents">
+        <div class="card">
+          <div class="card-head"><h3>AI Agent Network</h3></div>
+          <div class="agent-network" id="agent-network"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Agent Status</h3></div>
+          <div id="agent-status-list" class="agent-status-list"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>The Autonomous Growth Loop</h3></div>
+          <div class="loop-track" id="loop-track-app"></div>
+        </div>
+      </section>
+
+      <!-- ============== INSIGHTS ============== -->
+      <section class="view hidden" id="view-insights">
+        <div class="card">
+          <div class="card-head"><h3>💬 Ask GrowthPilot</h3></div>
+          <p class="muted">A specialized business-intelligence assistant grounded in your data — not a generic chatbot.</p>
+          <div class="ask-suggestions" id="ask-suggestions"></div>
+          <div class="ask-input-row">
+            <input type="text" id="ask-input" placeholder="Ask about revenue, customers, campaigns…">
+            <button class="btn btn-primary" id="btn-ask">Ask</button>
+          </div>
+          <div id="ask-result" class="ask-result"></div>
+        </div>
+
+        <div class="row-2">
+          <div class="card">
+            <div class="card-head"><h3>📈 Sales Forecast</h3></div>
+            <div class="forecast-tabs">
+              <button class="tab active" data-days="7">7-Day</button>
+              <button class="tab" data-days="30">30-Day</button>
+            </div>
+            <canvas id="chart-forecast" height="220"></canvas>
+            <div class="forecast-summary" id="forecast-summary"></div>
+            <div class="muted" id="forecast-explain"></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>🛡️ Business Risk Monitor</h3></div>
+            <div id="risk-list" class="risk-list"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h3>📍 Smart Business Timing</h3></div>
+          <p class="muted" style="margin-top:-6px;">Illustrative timing patterns — full precision requires more transaction history than a single upload provides.</p>
+          <div id="smart-timing" class="smart-timing"></div>
+        </div>
+      </section>
+
+      <!-- ============== GROWTH TOOLS ============== -->
+      <section class="view hidden" id="view-growth-tools">
+        <div class="card">
+          <div class="card-head"><h3>🗺️ Merchant Growth Heatmap</h3></div>
+          <p class="muted">Simulated zone-level view of customer density, transaction volume, and untapped potential.</p>
+          <div id="heatmap-grid" class="heatmap-grid"></div>
+        </div>
+
+        <div class="row-2">
+          <div class="card soundbox-card">
+            <div class="card-head"><h3>🔊 AI Soundbox Intelligence</h3></div>
+            <div id="soundbox-panel" class="soundbox-panel"></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>💳 AI Financial Opportunity Finder</h3></div>
+            <p class="muted" style="margin-top:-6px;">Simulated eligibility signals only — not a real underwriting decision.</p>
+            <div id="financial-opps" class="financial-opps"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>🏆 AI Growth Missions</h3>
+            <span class="muted" id="missions-progress"></span>
+          </div>
+          <div id="missions-list" class="missions-list"></div>
+        </div>
+      </section>
+
+      <!-- ============== ACTION CENTER ============== -->
+      <section class="view hidden" id="view-actions">
+        <div class="card">
+          <div class="card-head"><h3>☑ AI Action Center</h3></div>
+          <p class="muted">Every AI recommendation lands here. You stay in control — approve, modify, or reject.</p>
+          <div id="action-list" class="action-list"></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- Voice modal -->
+<div id="voice-modal" class="modal hidden">
+  <div class="modal-card">
+    <button class="modal-close" id="voice-close">✕</button>
+    <h3>🎙️ Talk to GrowthPilot</h3>
+    <p class="muted">Voice input is simulated for this demo — pick a sample question in English, Hindi, or Hinglish.</p>
+    <div class="voice-samples" id="voice-samples"></div>
+    <div id="voice-answer" class="voice-answer"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast hidden"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="background.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
