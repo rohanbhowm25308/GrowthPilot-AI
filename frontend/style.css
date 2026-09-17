@@ -215,6 +215,52 @@ button{font-family:inherit;}
   font-size:.78rem; color:var(--text-mute);
 }
 
+.dev-credit{
+  position:relative; z-index:2;
+  padding: 18px 48px 28px;
+  border-top: 1px solid var(--border);
+}
+.dev-credit-inner{
+  max-width: 1480px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.dev-credit-text{
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--text-mute);
+}
+.dev-credit-text strong{
+  color: var(--text);
+  font-weight: 600;
+}
+.dev-credit-links{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dev-credit-link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-mute);
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.dev-credit-link:hover{
+  color: var(--cyan);
+  border-color: rgba(0, 229, 255, 0.35);
+  transform: translateY(-2px);
+}
+
 /* ==========================================================================
    ONBOARDING (Upload / Demo / Mapping / Analyzing)
    ========================================================================== */
