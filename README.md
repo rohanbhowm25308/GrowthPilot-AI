@@ -1,130 +1,829 @@
-# Paytm GrowthPilot AI
+⚡ Paytm GrowthPilot AI
 
-**Your AI Business Partner for Merchant Growth.**
-Built for the Paytm AI Hackathon — Track 1: Merchant Growth AI.
+The AI Business Partner for Every Paytm Merchant
 
-GrowthPilot AI is a merchant-growth copilot for Paytm merchants. It follows one loop for
-every insight it surfaces: **SEE → UNDERSTAND → PREDICT → DECIDE → ACT → MEASURE → LEARN.**
-A central orchestrator coordinates 8 specialized agents (Business Analyst, Customer
-Intelligence, Forecast, Growth Strategy, Marketing, ROI, Action, and the Orchestrator
-itself) to diagnose problems, predict outcomes, generate campaigns, and hand the merchant
-a decision — never an action taken without approval.
+GrowthPilot AI is an AI-powered merchant growth copilot built for Paytm AI Hackathon — Track 1: Merchant Growth AI.
+It transforms merchant transaction data into insights, predictions, growth opportunities, strategies, and measurable actions through a coordinated multi-agent AI system.
+Upload merchant data, understand what is happening, and move from “What happened?” to “What should I do next?”
 
-**The app opens empty, not pre-filled.** A merchant either uploads a CSV/Excel of their
-own transactions — GrowthPilot auto-detects the columns, lets them confirm the mapping,
-and generates the entire dashboard from that real data — or clicks **"Try Demo Data"** to
-load a prepared, clearly-labelled simulated dataset instantly. Every feature (KPIs, Growth
-Score, Customer DNA, Opportunity Radar, Forecast, Anomaly Detector, Business Doctor, Ask
-GrowthPilot, Daily Brief) reads from whichever dataset is active, so the pitch is:
-*"GrowthPilot doesn't come with a predefined dashboard — a merchant uploads their data,
-and the AI agent system builds their intelligence layer automatically."*
+🔗 Project Links
 
-## Stack
+🚀 Live Project Demo:
+https://growthpilot-ai-oink.onrender.com/
 
-- **Frontend:** plain HTML / CSS / JavaScript (no build step), Chart.js for charts
-- **Backend:** Python + Flask, pandas for the upload/analysis pipeline
-- **AI:** Groq (`openai/gpt-oss-120b`) for diagnosis text, campaign copy, forecast
-  explanations, and the "Ask GrowthPilot" natural-language interface
-- **Graceful fallback:** every AI-backed endpoint has a templated fallback response
-  (built from whichever dataset — real or demo — is active), so the app runs and demos
-  cleanly even with no Groq key configured or if a call fails — `used_ai` in each response
-  tells the frontend (shown as the "Groq AI: Live / Demo mode" pill in the sidebar) which
-  one happened.
+💻 GitHub Repository:
+https://github.com/rohanbhowm25308/GrowthPilot-AI
 
-## Run it
 
-```bash
+SEE → UNDERSTAND → PREDICT → DECIDE → ACT → MEASURE → LEARN
+
+</div>
+
+ What is GrowthPilot AI?
+
+GrowthPilot AI is an AI-powered merchant growth copilot built for Paytm AI Hackathon — Track 1: Merchant Growth AI.
+
+Instead of giving merchants another analytics dashboard, GrowthPilot turns their transaction data into a continuous growth decision system.
+
+A merchant can upload a CSV/Excel dataset. GrowthPilot:
+
+understands and validates the data,
+
+automatically maps relevant columns,
+
+builds a merchant intelligence layer,
+
+analyzes revenue and customer behavior,
+
+predicts trends and risks,
+
+discovers growth opportunities,
+
+generates strategies and campaigns,
+
+estimates expected impact and ROI,
+
+sends recommendations to an approval-based Action Center,
+
+measures the resulting opportunity.
+
+The core idea
+
+Dashboards tell merchants what happened. GrowthPilot helps them decide what to do next.
+
+🎯 The Problem
+
+Merchants generate valuable signals every day through payments, customers, products and transaction patterns.
+
+But raw payment data does not automatically answer the questions that matter most:
+
+Merchant Question
+
+GrowthPilot Answer
+
+Why did sales change?
+
+🔎 AI Business Diagnosis
+
+Which customers need attention?
+
+👥 Customer DNA & churn-risk analysis
+
+What opportunity am I missing?
+
+📡 Growth Opportunity Radar
+
+What will sales look like next?
+
+📈 AI Sales Forecast
+
+What should I do this week?
+
+🧠 AI Growth Strategy
+
+Which offer should I run?
+
+🎯 AI Campaign Studio
+
+Will the campaign be worth it?
+
+💰 ROI & What-If Simulation
+
+Should I execute it?
+
+✅ Merchant-controlled Action Center
+
+🚀 The GrowthPilot Loop
+
+                 MERCHANT DATA
+                      │
+                      ▼
+            ┌──────────────────┐
+            │  DATA INTELLIGENCE│
+            │ Validation +      │
+            │ Column Mapping    │
+            └────────┬─────────┘
+                     │
+                     ▼
+            ┌──────────────────┐
+            │ GROWTHPILOT      │
+            │ ORCHESTRATOR     │
+            └────────┬─────────┘
+                     │
+        ┌────────────┼────────────┐
+        ▼            ▼            ▼
+   CUSTOMER      FORECAST      BUSINESS
+   INTELLIGENCE    AGENT       ANALYST
+        │            │            │
+        └────────────┼────────────┘
+                     │
+             ┌───────▼────────┐
+             │ GROWTH SIGNALS │
+             └───────┬────────┘
+                     │
+                     ▼
+             ┌───────────────┐
+             │ AI STRATEGY   │
+             │ + MARKETING   │
+             │ + ROI         │
+             └───────┬───────┘
+                     │
+                     ▼
+             MERCHANT APPROVAL
+                     │
+                     ▼
+              ACTION CENTER
+                     │
+                     ▼
+               MEASURE IMPACT
+                     │
+                     ▼
+                 LEARN ♻
+
+🤖 8-Agent Growth Intelligence Network
+
+GrowthPilot is designed as a coordinated AI team, rather than a single chatbot.
+
+Agent
+
+Responsibility
+
+🔍 Business Analyst Agent
+
+Finds revenue patterns, anomalies and business-level signals
+
+👥 Customer Intelligence Agent
+
+Builds Customer DNA, segments customers and identifies at-risk behavior
+
+📈 Forecast Agent
+
+Predicts near-term revenue and demand trends
+
+🧠 Growth Strategy Agent
+
+Converts detected opportunities into actionable growth strategies
+
+✍️ Marketing Agent
+
+Creates targeted campaign concepts and merchant-ready messaging
+
+💰 ROI Agent
+
+Estimates campaign economics, expected impact and ROI
+
+⚡ Action Agent
+
+Converts approved recommendations into Action Center tasks
+
+🧭 Orchestrator Agent
+
+Coordinates the complete intelligence workflow
+
+Why multi-agent?
+
+A merchant's growth problem is not one problem.
+
+It combines analytics + customers + forecasting + strategy + marketing + economics + execution.
+
+GrowthPilot separates these responsibilities into specialized agents and brings their outputs together through an orchestrator.
+
+✨ Product Intelligence
+
+🩺 AI Business Doctor
+
+“Diagnose My Business”
+
+A merchant-facing AI diagnosis layer that answers:
+
+What is going well?
+
+What is declining?
+
+Why is it happening?
+
+Which customers or periods need attention?
+
+What should the merchant prioritize next?
+
+📡 Growth Opportunity Radar
+
+GrowthPilot continuously looks for actionable signals such as:
+
+🔁 customer retention opportunities
+
+🛒 repeat-purchase opportunities
+
+🎯 cross-sell opportunities
+
+⏰ high-value timing windows
+
+♻️ inactive-customer recovery
+
+📊 unusual revenue behavior
+
+Each opportunity is presented with a reason and recommended next step.
+
+👥 Customer DNA
+
+Instead of treating every customer equally, GrowthPilot creates behavioral segments such as:
+
+Loyal Champions • Active Buyers • Deal Seekers • Rising Customers • At Risk • Lost
+
+This helps merchants move from:
+
+“I have 1,000 customers.”
+
+to:
+
+“These 126 customers are becoming inactive — and here is what I can do about it.”
+
+📈 AI Sales Forecast
+
+GrowthPilot provides explainable short-term forecasting using the active dataset.
+
+The merchant can explore:
+
+expected revenue trend,
+
+recent momentum,
+
+seasonality signals,
+
+forecast confidence,
+
+and the reasoning behind the prediction.
+
+🎯 AI Campaign Studio
+
+GrowthPilot does not stop at identifying a problem.
+
+It can turn an opportunity into a campaign concept.
+
+Example
+
+Signal
+
+Repeat customers are declining.
+
+↓
+
+AI discovers
+
+A group of customers is showing declining purchase frequency.
+
+↓
+
+Strategy
+
+Launch a targeted win-back campaign.
+
+↓
+
+Campaign
+
+Personalized ₹50 cashback offer.
+
+↓
+
+Timing
+
+Prioritize the strongest predicted engagement window.
+
+↓
+
+ROI
+
+Estimate reach, conversions, revenue and campaign economics.
+
+↓
+
+Action
+
+Merchant reviews → Approve & Execute
+
+🧪 What-If Growth Simulator
+
+Before committing resources, merchants can test a decision.
+
+Example question
+
+“What if I offer ₹50 cashback to my inactive customers?”
+
+GrowthPilot can compare:
+
+CURRENT STATE
+      │
+      ├── Customer reach
+      ├── Expected conversions
+      ├── Revenue
+      └── Baseline
+             │
+             ▼
+      SIMULATED STRATEGY
+             │
+      ├── Incentive
+      ├── Reach
+      ├── Expected conversions
+      ├── Projected revenue
+      └── Expected ROI
+
+This turns campaign planning from guesswork into scenario-based decision making.
+
+⚡ Action Center
+
+Every important recommendation can flow into a central action queue.
+
+AI detects opportunity
+        ↓
+AI explains why
+        ↓
+AI recommends action
+        ↓
+AI predicts impact
+        ↓
+MERCHANT REVIEWS
+        ↓
+APPROVE / REJECT
+        ↓
+ACTION CENTER
+
+Human-in-the-loop by design
+
+GrowthPilot is intentionally merchant-controlled.
+
+AI recommends and prepares actions. The merchant remains in control of execution.
+
+For the hackathon prototype, execution is clearly marked as simulated — the system does not claim to directly modify real Paytm production systems.
+
+📂 Bring Your Own Data
+
+GrowthPilot is not locked to a predefined dashboard.
+
+Upload
+
+.csv
+
+.xlsx
+
+.xls
+
+Required signals
+
+Transaction date
+
+Amount / revenue
+
+Customer ID
+
+Optional signals
+
+Product
+
+Location
+
+Automatic pipeline
+
+UPLOAD
+  ↓
+COLUMN DETECTION
+  ↓
+CONFIRM MAPPING
+  ↓
+DATA QUALITY CHECK
+  ↓
+CLEAN + TRANSFORM
+  ↓
+BUILD MERCHANT INTELLIGENCE
+  ↓
+AI ANALYSIS
+
+GrowthPilot checks for:
+
+missing values,
+
+invalid dates,
+
+invalid amounts,
+
+missing customer IDs,
+
+duplicates,
+
+usable row count,
+
+overall data quality.
+
+Demo Mode
+
+A clearly labelled simulated dataset is also available through Try Demo Data, making the application easy to evaluate without a merchant dataset.
+
+🧩 Intelligence Beyond the Core Dashboard
+
+GrowthPilot also includes additional merchant-growth concepts:
+
+💬 Ask GrowthPilot — natural-language business questions
+
+📝 AI Daily Business Brief
+
+🔔 Revenue Anomaly Detector
+
+🎯 AI Growth Goal Planner
+
+🧪 AI Experiment Lab
+
+🧠 Growth Memory
+
+🛍️ AI Cross-Sell Engine
+
+💡 Hyper-Personalized Offers
+
+⏰ Smart Business Timing
+
+🗺️ Merchant Growth Heatmap
+
+🔊 AI Soundbox Intelligence Simulation
+
+💳 AI Financial Opportunity Finder
+
+🏆 AI Growth Missions
+
+❓ Explain My Numbers
+
+🎙️ Voice GrowthPilot concept
+
+🧠 AI “Why Not?” decision critique
+
+Some of these are intentionally marked in the product as simulated / illustrative because a single uploaded transaction file does not contain every signal required for a production implementation.
+
+🏗️ Technical Architecture
+
+flowchart LR
+    A[Merchant CSV / Excel] --> B[Data Ingestion]
+    B --> C[Column Detection]
+    C --> D[Data Quality & Validation]
+    D --> E[Dataset Intelligence Layer]
+
+    E --> F[GrowthPilot Orchestrator]
+
+    F --> G[Business Analyst]
+    F --> H[Customer Intelligence]
+    F --> I[Forecast Agent]
+    F --> J[Growth Strategy]
+    F --> K[Marketing Agent]
+    F --> L[ROI Agent]
+    F --> M[Action Agent]
+
+    G --> N[Growth Insights]
+    H --> N
+    I --> N
+    J --> N
+    K --> N
+    L --> N
+    M --> N
+
+    N --> O[Recommendation]
+    O --> P[Merchant Approval]
+    P --> Q[Action Center]
+    Q --> R[Impact Measurement]
+    R --> F
+
+🛠️ Tech Stack
+
+Frontend
+
+HTML5
+
+CSS3
+
+Vanilla JavaScript
+
+Chart.js
+
+Custom animated fintech-AI background
+
+Backend
+
+Python
+
+Flask
+
+pandas
+
+python-dotenv
+
+Flask-CORS
+
+AI
+
+Groq API
+
+Model configured in the project: openai/gpt-oss-120b
+
+AI-powered diagnosis
+
+Campaign copy generation
+
+Forecast explanations
+
+Natural-language merchant Q&A
+
+Deployment
+
+Render
+
+Gunicorn
+
+📁 Project Structure
+
+Growthpilot-AI/
+│
+├── backend/
+│   ├── app.py                  # Flask API + application routes
+│   ├── data.py                 # Demo dataset + feature data
+│   ├── data_processor.py       # Upload, mapping, validation & analytics
+│   ├── groq_client.py          # Groq AI integration + fallback
+│   ├── requirements.txt        # Python dependencies
+│   └── .env.example            # Environment variable template
+│
+├── frontend/
+│   ├── index.html              # Application UI
+│   ├── style.css               # GrowthPilot design system
+│   ├── app.js                  # Frontend application logic
+│   ├── background.js           # Animated AI/fintech background
+│   └── config.js               # API configuration
+│
+├── render.yaml                 # Render deployment configuration
+├── .gitignore
+└── README.md
+
+💻 Run Locally
+
+1. Clone
+
+git clone https://github.com/rohanbhowm25308/Growthpilot-AI.git
+cd Growthpilot-AI
+
+2. Create environment
+
 cd backend
+python -m venv .venv
+
+Windows
+
+.venv\Scripts\activate
+
+macOS / Linux
+
+source .venv/bin/activate
+
+3. Install dependencies
+
 pip install -r requirements.txt
-cp .env.example .env      # then open .env and add your real GROQ_API_KEY
+
+4. Configure AI
+
+cp .env.example .env
+
+Add your own key:
+
+GROQ_API_KEY=your_api_key_here
+
+Never commit .env or API keys to GitHub.
+
+5. Start GrowthPilot
+
 python app.py
-```
 
-Open **http://localhost:5050** — Flask serves the frontend directly (loads `.env`
-automatically via python-dotenv), so there's no CORS setup and no separate frontend
-server. Without a real `GROQ_API_KEY`, every feature still works using the templated
-fallback content — the sidebar's status pill ("● AI Engine Online" / "● AI Fallback Mode")
-tells you which one is active, and every AI-narrative block on screen carries its own
-"🤖 Powered by GrowthPilot AI" or "📋 offline reasoning" tag so it's never ambiguous which
-parts of the page are live LLM output versus the deterministic calculations underneath.
+Open:
 
-`.env` is gitignored on purpose — `backend/.env.example` is the template that ships in
-version control. Debug mode is off by default; set `FLASK_DEBUG=true` in `.env` only for
-local development. For a real deployment, run behind Gunicorn instead of the Flask dev
-server: `gunicorn -w 2 -b 0.0.0.0:5050 app:app` (from `backend/`).
+http://localhost:5050
 
-## Deploy it (Render only — no Netlify needed)
+☁️ Deploy on Render
 
-Flask serves the frontend itself (`send_from_directory`), so the whole app — API and UI —
-is **one deployable service**. You do not need a separate static-site host: deploying only
-to Render is correct and complete.
+The repository includes render.yaml.
 
-The repo includes a `render.yaml` Blueprint, so the nested `backend/` folder (where
-`requirements.txt` actually lives) is handled automatically — no manual "Root Directory"
-setup needed:
+Render configuration
 
-1. Push this repo to GitHub.
-2. On [Render](https://dashboard.render.com) → **New** → **Blueprint** → connect the repo.
-   Render reads `render.yaml` and configures everything (root directory, build command
-   `pip install -r requirements.txt`, start command `gunicorn app:app --bind 0.0.0.0:$PORT`).
-3. Render will prompt for the one secret marked `sync: false` in `render.yaml` —
-   paste in your real `GROQ_API_KEY`. Everything else is preset.
-4. Deploy. Your live URL serves both the site and the API — nothing else to host.
+Runtime:       Python
+Root Directory: backend
+Build Command: pip install -r requirements.txt
+Start Command: gunicorn app:app --bind 0.0.0.0:$PORT
 
-**If you'd rather configure it by hand** (New → Web Service, not Blueprint) instead of
-using the Blueprint, set: **Root Directory** = `backend`, **Build Command** =
-`pip install -r requirements.txt`, **Start Command** = `gunicorn app:app --bind 0.0.0.0:$PORT`,
-and add `GROQ_API_KEY` under Environment.
+Add:
 
-## Feature map
+GROQ_API_KEY
 
-| Area | What it does |
-|---|---|
-| Onboarding | Upload CSV/Excel → auto column detection & mapping → **Data Quality Check** (missing values, duplicates, a 0–100 quality score) → AI analysis animation → dashboard generated from real data. Or "Try Demo Data" for an instant, clearly-labelled simulated dataset. |
-| Data Source (sidebar) | Always shows which dataset is active — merchant filename, row count, and when it was last analyzed, or "Demo Dataset — Simulated merchant data." "⇄ Switch Data Source" and the topbar's "＋ New Analysis" both return to onboarding to load something else. |
-| Overview | KPI dashboard, animated Growth Score with explainable factors, AI Business Doctor, Revenue Anomaly Detector, AI Daily Business Brief |
-| Customers | Customer DNA (6 segments), segment detail (LTV, AOV, strategy), AI Cross-Sell Engine |
-| Growth Radar | Growth Opportunity Radar (activate → sends to Action Center), AI Growth Goal Planner, Growth Memory |
-| Campaigns | AI Campaign Studio — reach/conversion/ROI are always computed from the active dataset's real segment sizes; the LLM only writes the creative name/message, never the numbers |
-| Simulator | What-If Growth Simulator (live current vs. AI-recommended comparison, using real segment counts), AI Experiment Lab |
-| AI Agents | Animated agent network visualization; each agent's task line reflects the real numbers just computed (e.g. "Identified 94 at-risk customers"), revealed sequentially like a live pipeline |
-| Insights | Ask GrowthPilot (structured, grounded NL Q&A), Sales Forecast (7/30-day, confidence band), Business Risk Monitor |
-| Action Center | Every AI recommendation lands here — Approve & Execute (clearly labeled SIMULATED — no real Paytm systems are touched), Reject |
-| Voice | Simulated voice interaction — English / Hindi / Hinglish sample questions |
-| Growth Tools | Merchant Growth Heatmap (simulated zones), AI Soundbox Intelligence Simulation, AI Financial Opportunity Finder (simulated eligibility only), AI Growth Missions (gamified, toggle to complete) |
-| Customers (add-on) | Hyper-Personalized Offers — per-customer minimum-incentive recommendation, not a blanket discount |
-| Insights (add-on) | Smart Business Timing — peak/slow hours, best campaign window, per-segment timing |
-| Campaigns (add-on) | AI "Why Not?" Engine — rule-based + AI critique of the configured campaign before you launch it |
-| Overview (add-on) | "Explain My Numbers" — a `?` button on every KPI card gives an AI-grounded explanation of that specific number |
+as a secret environment variable.
 
-## Uploading your own data
+Production deployment
 
-Required columns (any names — GrowthPilot auto-detects and lets you re-map): a
-**transaction date**, an **amount/revenue** value, and a **customer ID**. Optional:
-**product** (unlocks the Cross-Sell Engine) and **location**. Rows with missing/invalid
-date, amount, or customer ID are dropped automatically before analysis; you'll see how
-many rows were used vs. dropped after confirming.
+The application is designed so Flask serves both:
 
-Features that read from whichever dataset is active (real or demo): KPIs, Growth Score,
-Business Doctor, Opportunity Radar, Customer DNA, Cross-Sell, Forecast, Anomaly Detector,
-Ask GrowthPilot, Daily Brief, Simulator, and Experiment Lab. A few features stay
-illustrative regardless of upload — Personalized Offers, Smart Business Timing,
-Heatmap, Soundbox, Financial Opportunities, and Missions — because they need signals
-(geography, long history, campaign outcomes) a single transactions file doesn't carry;
-the UI says so directly rather than pretending otherwise.
+the frontend,
 
-## Project structure
+and the backend API.
 
-```
-backend/
-  app.py              # all API routes
-  data.py             # static demo dataset + calculation helpers (Demo Mode)
-  data_processor.py   # real-data pipeline: column detection, mapping, dashboard generation
-  groq_client.py      # Groq wrapper with graceful fallback
-  requirements.txt
-frontend/
-  index.html
-  style.css           # design system (dark navy / Paytm blue / cyan / gold)
-  app.js              # all frontend logic, wired to the API
-  config.js           # API_BASE — leave empty for same-origin
-```
+Therefore, one Render web service is sufficient for the prototype.
+
+🔐 Responsible AI & Data Handling
+
+GrowthPilot is designed with a clear distinction between:
+
+Deterministic analytics
+
+Calculations such as:
+
+KPIs,
+
+customer counts,
+
+segment sizes,
+
+revenue history,
+
+opportunities,
+
+simulation inputs,
+
+and data-quality results
+
+are derived from the active dataset.
+
+Generative AI
+
+The LLM is used for:
+
+diagnosis narratives,
+
+campaign language,
+
+forecast explanations,
+
+and natural-language interaction.
+
+Graceful fallback
+
+If the Groq API is unavailable, GrowthPilot falls back to deterministic/template-based reasoning so the application remains demonstrable.
+
+The UI distinguishes between live AI output and fallback reasoning.
+
+🧪 Prototype vs. Production
+
+GrowthPilot is a hackathon prototype, not a production Paytm service.
+
+Prototype-ready today
+
+✅ CSV/XLSX/XLS upload
+✅ Automatic column detection
+✅ Data quality validation
+✅ Merchant intelligence generation
+✅ Customer segmentation
+✅ Growth Score
+✅ Opportunity detection
+✅ Forecasting
+✅ AI diagnosis
+✅ Campaign generation
+✅ What-If simulation
+✅ ROI estimation
+✅ Multi-agent orchestration UI
+✅ Action Center
+✅ Render deployment
+
+Production evolution
+
+A production implementation could add:
+
+secure Paytm merchant-data APIs,
+
+real-time event streams,
+
+campaign execution APIs,
+
+production-grade model monitoring,
+
+merchant-level authentication and authorization,
+
+privacy controls,
+
+experimentation infrastructure,
+
+stronger causal uplift modeling,
+
+real campaign outcome feedback,
+
+and continuous agent evaluation.
+
+🗺️ Roadmap
+
+Phase 01 — Intelligence
+
+Merchant data → unified intelligence
+
+stronger real-time analytics
+
+richer customer signals
+
+improved forecasting
+
+Phase 02 — Prediction
+
+Intelligence → proactive growth
+
+churn prediction
+
+demand prediction
+
+customer lifetime value
+
+uplift modeling
+
+Phase 03 — Decision
+
+Prediction → optimized strategy
+
+AI experiments
+
+offer optimization
+
+budget allocation
+
+scenario simulation
+
+Phase 04 — Action
+
+Decision → merchant-approved execution
+
+Paytm ecosystem integrations
+
+campaign APIs
+
+real-time merchant actions
+
+closed-loop measurement
+
+Phase 05 — Autonomous Growth Loop
+
+DETECT
+  ↓
+UNDERSTAND
+  ↓
+PREDICT
+  ↓
+DECIDE
+  ↓
+CREATE
+  ↓
+MERCHANT APPROVAL
+  ↓
+EXECUTE
+  ↓
+MEASURE
+  ↓
+LEARN
+  ↺
+  
+
+🏆 Why GrowthPilot?
+
+Most merchant analytics products answer:
+
+“What happened?”
+
+GrowthPilot is designed to answer:
+
+“Why did it happen?”
+
+“What is likely to happen next?”
+
+“What should I do?”
+
+“What result can I expect?”
+
+“Should I execute it?”
+
+And finally:
+
+“Did it work?”
+
+That's the shift:
+
+Analytics → Intelligence → Decision → Action → Growth
+
+
+👨‍💻 Team-Code Kings
+
+Paytm AI Hackathon 2026 — Track 1: Merchant Growth AI
+
+Team Members-Rohan Bhowmik
+
+Team Members-Oshin Arora
+
+
+⚡ GrowthPilot AI
+
+Don't just show merchants their numbers. Help them grow.
+
+SEE → UNDERSTAND → PREDICT → DECIDE → ACT → MEASURE
+
+Built for the Paytm AI Hackathon 2026
