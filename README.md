@@ -810,14 +810,11 @@ That's the shift:
 
 Analytics → Intelligence → Decision → Action → Growth
 
+## 👤 Devloped by
 
-👨‍💻 Team-Code Kings
+  **Rohan Bhowmik**
 
-Paytm AI Hackathon 2026 — Track 1: Merchant Growth AI
-
-Team Members-Rohan Bhowmik
-
-Team Members-Oshin Arora
+**Aspiring AI/ML Engineer · Data Scientist · Web Developer**
 
 
 ⚡ GrowthPilot AI
