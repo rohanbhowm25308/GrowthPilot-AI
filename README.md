@@ -1,4 +1,4 @@
-⚡ Paytm GrowthPilot AI
+GrowthPilot AI
 
 The AI Business Partner for Every Paytm Merchant
 
@@ -6,7 +6,7 @@ GrowthPilot AI is an AI-powered merchant growth copilot built for Paytm AI Hacka
 It transforms merchant transaction data into insights, predictions, growth opportunities, strategies, and measurable actions through a coordinated multi-agent AI system.
 Upload merchant data, understand what is happening, and move from “What happened?” to “What should I do next?”
 
-🔗 Project Links
+ Project Links
 
 🚀 Live Project Demo:
 https://growthpilot-ai-oink.onrender.com/
@@ -51,7 +51,7 @@ The core idea
 
 Dashboards tell merchants what happened. GrowthPilot helps them decide what to do next.
 
-🎯 The Problem
+ The Problem
 
 Merchants generate valuable signals every day through payments, customers, products and transaction patterns.
 
@@ -534,28 +534,6 @@ Render
 
 Gunicorn
 
-📁 Project Structure
-
-Growthpilot-AI/
-│
-├── backend/
-│   ├── app.py                  # Flask API + application routes
-│   ├── data.py                 # Demo dataset + feature data
-│   ├── data_processor.py       # Upload, mapping, validation & analytics
-│   ├── groq_client.py          # Groq AI integration + fallback
-│   ├── requirements.txt        # Python dependencies
-│   └── .env.example            # Environment variable template
-│
-├── frontend/
-│   ├── index.html              # Application UI
-│   ├── style.css               # GrowthPilot design system
-│   ├── app.js                  # Frontend application logic
-│   ├── background.js           # Animated AI/fintech background
-│   └── config.js               # API configuration
-│
-├── render.yaml                 # Render deployment configuration
-├── .gitignore
-└── README.md
 
 💻 Run Locally
 
@@ -668,27 +646,27 @@ If the Groq API is unavailable, GrowthPilot falls back to deterministic/template
 
 The UI distinguishes between live AI output and fallback reasoning.
 
-🧪 Prototype vs. Production
+ Prototype vs. Production
 
 GrowthPilot is a hackathon prototype, not a production Paytm service.
 
 Prototype-ready today
 
-✅ CSV/XLSX/XLS upload
-✅ Automatic column detection
-✅ Data quality validation
-✅ Merchant intelligence generation
-✅ Customer segmentation
-✅ Growth Score
-✅ Opportunity detection
-✅ Forecasting
-✅ AI diagnosis
-✅ Campaign generation
-✅ What-If simulation
-✅ ROI estimation
-✅ Multi-agent orchestration UI
-✅ Action Center
-✅ Render deployment
+ CSV/XLSX/XLS upload
+ Automatic column detection
+ Data quality validation
+ Merchant intelligence generation
+ Customer segmentation
+ Growth Score
+ Opportunity detection
+ Forecasting
+ AI diagnosis
+ Campaign generation
+ What-If simulation
+ ROI estimation
+ Multi-agent orchestration UI
+ Action Center
+ Render deployment
 
 Production evolution
 
@@ -817,7 +795,7 @@ Analytics → Intelligence → Decision → Action → Growth
 **Aspiring AI/ML Engineer · Data Scientist · Web Developer**
 
 
-⚡ GrowthPilot AI
+ GrowthPilot AI
 
 Don't just show merchants their numbers. Help them grow.
 
