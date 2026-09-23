@@ -1,4 +1,4 @@
-GrowthPilot AI
+### GrowthPilot AI
 
 The AI Business Partner for Every Paytm Merchant
 
